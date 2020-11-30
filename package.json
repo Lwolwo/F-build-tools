@@ -1,34 +1,48 @@
 {
-  "name": "F-build-tools",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "parcel src/index.html",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint --ext .js,.vue src",
-    "fix": "eslint --ext .js,.vue --fix src"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "react-dom": "^17.0.1"
-  },
-  "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "eslint": "^7.14.0",
-    "eslint-config-prettier": "^6.15.0",
-    "eslint-loader": "^4.0.2",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "^7.21.5",
-    "install": "^0.13.0",
-    "node-sass": "^5.0.0",
-    "npm": "^6.14.9",
-    "parcel-bundler": "^1.12.4",
-    "prettier": "^2.2.1",
-    "react": "^17.0.1"
-  }
+	"name": "F-build-tools",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "parcel src/index.html",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"lint": "eslint --ext .js,.vue src",
+		"fix": "eslint --ext .js,.vue --fix src"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"react-dom": "^17.0.1"
+	},
+	"devDependencies": {
+		"babel-core": "^6.26.3",
+		"babel-preset-env": "^1.7.0",
+		"babel-preset-react": "^6.24.1",
+		"eslint": "^7.14.0",
+		"eslint-config-prettier": "^6.15.0",
+		"eslint-loader": "^4.0.2",
+		"eslint-plugin-prettier": "^3.1.4",
+		"eslint-plugin-react": "^7.21.5",
+		"husky": "^4.3.0",
+		"install": "^0.13.0",
+		"lint-staged": "^10.5.2",
+		"node-sass": "^5.0.0",
+		"npm": "^6.14.9",
+		"parcel-bundler": "^1.12.4",
+		"prettier": "^2.2.1",
+		"react": "^17.0.1"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"src/**": [
+			"prettier --config .prettierrc --write",
+			"eslint --fix",
+			"git add"
+		]
+	}
 }
